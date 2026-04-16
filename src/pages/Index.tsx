@@ -7,6 +7,10 @@ import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import sravyaPhoto from '@/assets/sravya-photo.jpeg';
+import sampleWebinar from '@/assets/sample-webinar.jpg';
+import sampleInstagram from '@/assets/sample-instagram.jpg';
+import sampleBrand from '@/assets/sample-brand.jpg';
+import sampleService from '@/assets/sample-service.jpg';
 
 
 function useScrollReveal() {
@@ -418,6 +422,38 @@ const Index = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+          </section>
+        </AnimatedSection>
+
+        {/* Sample Work Section */}
+        <AnimatedSection>
+          <section id="sample-work" className="py-20 px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold mb-4 scroll-fade-up">Sample Work</h2>
+                <p className="text-muted-foreground scroll-fade-up stagger-1">A glimpse into my marketing designs and campaigns</p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  { src: sampleWebinar, alt: "Digital Marketing Webinar" },
+                  { src: sampleInstagram, alt: "Instagram Growth Strategy" },
+                  { src: sampleBrand, alt: "Digital Marketing Branding" },
+                  { src: sampleService, alt: "Marketing Services Overview" }
+                ].map((item, index) => (
+                  <div key={index} className={`relative group overflow-hidden rounded-2xl glass-card scroll-scale-in stagger-${index + 2} hover-lift`}>
+                    <img 
+                      src={item.src} 
+                      alt={item.alt} 
+                      className="w-full h-full object-cover aspect-[3/4] transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-tech-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                      <p className="text-white text-center font-medium">{item.alt}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>
